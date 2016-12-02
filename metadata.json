@@ -1,0 +1,31 @@
+{
+  "name": "ducksource-ipsec",
+  "version": "0.1.0",
+  "author": "DuckSource",
+  "summary": "Manages IPsec on linux machines.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/bibigon812/ducksource-ipsec.git",
+  "project_page": "https://github.com/bibigon812/ducksource-ipsec",
+  "issues_url": "https://github.com/bibigon812/ducksource-ipsec/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">=3.2.0 <5.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    }
+  ],
+  "data_provider": null
+}

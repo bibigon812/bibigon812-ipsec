@@ -1,0 +1,106 @@
+#
+# /etc/ipsec.conf
+#
+
+
+version 2
+
+config setup
+<%- if @myid -%>
+    myid=<%= @myid %>
+<%- end -%>
+<%- if @protostack -%>
+    protostack=<%= @protostack %>
+<%- end -%>
+<%- if @interfaces -%>
+    interfaces=<%= @interfaces %>
+<%- end -%>
+<%- if @listen -%>
+    listen=<%= @listen %>
+<%- end -%>
+<%- if @ikeport -%>
+    ikeport=<%= @ikeport %>
+<%- end -%>
+<%- if @nat_ikeport -%>
+    nat-ikeport=<%= @nat_ikeport %>
+<%- end -%>
+<%- if @keep_alive -%>
+    keep-alive=<%= @keep_alive %>
+<%- end -%>
+<%- if @retransmits -%>
+    retransmits=<%= @retransmits %>
+<%- end -%>
+<%- if @virtual_private -%>
+    virtual-private=<%= @virtual_private %>
+<%- end -%>
+<%- if @myvendorid -%>
+    myvendorid=<%= @myvendorid %>
+<%- end -%>
+<%- if @nhelpers -%>
+    nhelpers=<%= @myvendorid %>
+<%- end -%>
+<%- if @secctx_attr_value -%>
+    secctx-attr-value=<%= @secctx_attr_value %>
+<%- end -%>
+<%- if @plutofork -%>
+    plutofork=<%= @plutofork %>
+<%- end -%>
+<%- if @crlcheckinterval -%>
+    crlcheckinterval=<%= @crlcheckinterval %>
+<%- end -%>
+<%- if @strictcrlpolicy -%>
+    strictcrlpolicy=<%= @strictcrlpolicy %>
+<%- end -%>
+<%- if @syslog -%>
+    syslog=<%= @syslog %>
+<%- end -%>
+<%- if @klipsdebug -%>
+    klipsdebug=<%= @klipsdebug %>
+<%- end -%>
+<%- if @plutodebug -%>
+    plutodebug=<%= @plutodebug %>
+<%- end -%>
+<%- if @uniqueids -%>
+    uniqueids=<%= @uniqueids %>
+<%- end -%>
+<%- if @plutorestartoncrash -%>
+    plutorestartoncrash=<%= @plutorestartoncrash %>
+<%- end -%>
+<%- if @plutostderrlog -%>
+    plutostderrlog=<%= @plutostderrlog %>
+<%- end -%>
+<%- if @plutostderrlogtime -%>
+    plutostderrlogtime=<%= @plutostderrlogtime %>
+<%- end -%>
+<%- if @force_busy -%>
+    force-busy=<%= @force_busy %>
+<%- end -%>
+<%- if @dumpdir -%>
+    dumpdir=<%= @dumpdir %>
+<%- end -%>
+<%- if @statsbin -%>
+    statsbin=<%= @statsbin %>
+<%- end -%>
+<%- if @ipsecdir -%>
+    ipsecdir=<%= @ipsecdir %>
+<%- end -%>
+<%- if @secretsfile -%>
+    secretsfile=<%= @secretsfile %>
+<%- end -%>
+<%- if @perpeerlog -%>
+    perpeerlog=<%= @perpeerlog %>
+<%- end -%>
+<%- if @perpeerlogdir -%>
+    perpeerlogdir=<%= @perpeerlogdir %>
+<%- end -%>
+<%- if @fragicmp -%>
+    fragicmp=<%= @fragicmp %>
+<%- end -%>
+<%- if @hidetos -%>
+    hidetos=<%= @hidetos %>
+<%- end -%>
+<%- if @overridemtu -%>
+    overridemtu=<%= @overridemtu %>
+<%- end -%>
+
+include /etc/ipsec.d/*.conf

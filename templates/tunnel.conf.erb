@@ -1,0 +1,259 @@
+# /etc/ipsec.d/tunnel-*.conf
+
+conn <%= @title %>
+      left=<%= @left %>
+<%- if @leftsubnet %>
+      leftsubnet=<%= @leftsubnet %>
+<%- end -%>
+<%- if @leftsubnets -%>
+      leftsubnets=<%= @leftsubnets.join(',') %>
+<%- end -%>
+<%- if @leftaddresspool -%>
+      leftaddresspool=<%= @leftaddresspool %>
+<%- end -%>
+<%- if @leftprotoport -%>
+      leftprotoport=<%= @leftprotoport %>
+<%- end -%>
+<%- if @leftnexthop -%>
+      leftnexthop=<%= @leftnexthop %>
+<%- end -%>
+<%- if @leftsourceip -%>
+      leftsourceip=<%= @leftsourceip %>
+<%- end -%>
+<%- if @leftupdown -%>
+      leftupdown=<%= @leftupdown %>
+<%- end -%>
+      right=<%= @right %>
+<%- if @rightsubnet -%>
+      rightsubnet=<%= @rightsubnet %>
+<%- end -%>
+<%- if @rightsubnets -%>
+      rightsubnets=<%= @rightsubnets.join(',') %>
+<%- end -%>
+<%- if @rightaddresspool -%>
+      rightaddresspool=<%= @rightaddresspool %>
+<%- end -%>
+<%- if @rightprotoport -%>
+      rightprotoport=<%= @rightprotoport %>
+<%- end -%>
+<%- if @rightnexthop -%>
+      rightnexthop=<%= @rightnexthop %>
+<%- end -%>
+<%- if @rightsourceip -%>
+      rightsourceip=<%= @rightsourceip %>
+<%- end -%>
+<%- if @rightupdown -%>
+      rightupdown=<%= @rightupdown %>
+<%- end -%>
+
+<%- if @auto -%>
+      auto=<%= @auto %>
+<%- end -%>
+<%- if @authby -%>
+      authby=<%= @authby %>
+<%- end -%>
+<%- if @ike -%>
+      ike=<%= @ike %>
+<%- end -%>
+<%- if @phase2 -%>
+      phase2=<%= @phase2 %>
+<%- end -%>
+<%- if @phase2alg -%>
+      phase2alg=<%= @phase2alg %>
+<%- end -%>
+<%- if @sha2_truncbug -%>
+      sha2-truncbug=<%= @sha2_truncbug %>
+<%- end -%>
+<%- if @nat_ikev1_method -%>
+      nat-ikev1-method=<%= @nat_ikev1_method %>
+<%- end -%>
+<%- if @ah -%>
+      ah=<%= @ah %>
+<%- end -%>
+<%- if @ike_frag -%>
+      ike-frag=<%= @ike_frag %>
+<%- end -%>
+<%- if @ikepad -%>
+      ikepad=<%= @ikepad %>
+<%- end -%>
+<%- if @ikev2 -%>
+      ikev2=<%= @ikev2 %>
+<%- end -%>
+<%- if @narrowing -%>
+      narrowing=<%= @narrowing %>
+<%- end -%>
+<%- if @sareftrack -%>
+      sareftrack=<%= @sareftrack %>
+<%- end -%>
+<%- if @leftid -%>
+      leftid=<%= @leftid %>
+<%- end -%>
+<%- if @leftrsasigkey -%>
+      leftrsasigkey=<%= @leftrsasigkey %>
+<%- end -%>
+<%- if @leftrsasigkey2 -%>
+      leftrsasigkey2=<%= @leftrsasigkey2 %>
+<%- end -%>
+<%- if @leftcert -%>
+      leftcert=<%= @leftcert %>
+<%- end -%>
+<%- if @leftca -%>
+      leftca=<%= @leftca %>
+<%- end -%>
+<%- if @leftsendcert -%>
+      leftsendcert=<%= @leftsendcert %>
+<%- end -%>
+<%- if @leftxauthserver -%>
+      leftxauthserver=<%= @leftxauthserver %>
+<%- end -%>
+<%- if @leftxauthclient -%>
+      leftxauthclient=<%= @leftxauthclient %>
+<%- end -%>
+<%- if @leftxauthusername -%>
+      leftxauthusername=<%= @leftxauthusername %>
+<%- end -%>
+<%- if @leftmodecfgserver -%>
+      leftmodecfgserver=<%= @leftmodecfgserver %>
+<%- end -%>
+<%- if @leftmodecfgclient -%>
+      leftmodecfgclient=<%= @leftmodecfgclient %>
+<%- end -%>
+<%- if @rightid -%>
+      rightid=<%= @rightid %>
+<%- end -%>
+<%- if @rightrsasigkey -%>
+      rightrsasigkey=<%= @rightrsasigkey %>
+<%- end -%>
+<%- if @rightrsasigkey2 -%>
+      rightrsasigkey2=<%= @rightrsasigkey2 %>
+<%- end -%>
+<%- if @rightcert -%>
+      rightcert=<%= @rightcert %>
+<%- end -%>
+<%- if @rightca -%>
+      rightca=<%= @rightca %>
+<%- end -%>
+<%- if @rightsendcert -%>
+      rightsendcert=<%= @rightsendcert %>
+<%- end -%>
+<%- if @rightxauthserver -%>
+      rightxauthserver=<%= @rightxauthserver %>
+<%- end -%>
+<%- if @rightxauthclient -%>
+      rightxauthclient=<%= @rightxauthclient %>
+<%- end -%>
+<%- if @rightxauthusername -%>
+      rightxauthusername=<%= @rightxauthusername %>
+<%- end -%>
+<%- if @rightmodecfgserver -%>
+      rightmodecfgserver=<%= @rightmodecfgserver %>
+<%- end -%>
+<%- if @rightmodecfgclient -%>
+      rightmodecfgclient=<%= @rightmodecfgclient %>
+<%- end -%>
+<%- if @xauthby -%>
+      xauthby=<%= @xauthby %>
+<%- end -%>
+<%- if @xauthfail -%>
+      xauthfail=<%= @xauthfail %>
+<%- end -%>
+<%- if @modecfgpull -%>
+      modecfgpull=<%= @modecfgpull %>
+<%- end -%>
+<%- if @modecfgdns1 -%>
+      modecfgdns1=<%= @modecfgdns1 %>
+<%- end -%>
+<%- if @modecfgdns2 -%>
+      modecfgdns2=<%= @modecfgdns2 %>
+<%- end -%>
+<%- if @modecfgdomain -%>
+      modecfgdomain=<%= @modecfgdomain %>
+<%- end -%>
+<%- if @modecfgbanner -%>
+      modecfgbanner=<%= @modecfgbanner %>
+<%- end -%>
+<%- if @remote_peer_type -%>
+      remote-peer-type=<%= @remote_peer_type %>
+<%- end -%>
+<%- if @nm_configured -%>
+      nm-configured=<%= @nm_configured %>
+<%- end -%>
+<%- if @forceencaps -%>
+      forceencaps=<%= @forceencaps %>
+<%- end -%>
+<%- if @nat_keepalive -%>
+      nat-keepalive=<%= @nat_keepalive %>
+<%- end -%>
+<%- if @initial_contact -%>
+      initial-contact=<%= @initial_contact %>
+<%- end -%>
+<%- if @cisco_unity -%>
+      cisco-unity=<%= @cisco_unity %>
+<%- end -%>
+<%- if @overlapip -%>
+      overlapip=<%= @overlapip %>
+<%- end -%>
+<%- if @reqid -%>
+      reqid=<%= @reqid %>
+<%- end -%>
+<%- if @dpddelay -%>
+      dpddelay=<%= @dpddelay %>
+<%- end -%>
+<%- if @dpdtimeout -%>
+      dpdtimeout=<%= @dpdtimeout %>
+<%- end -%>
+<%- if @dpdaction -%>
+      dpdaction=<%= @dpdaction %>
+<%- end -%>
+<%- if @pfs -%>
+      pfs=<%= @pfs %>
+<%- end -%>
+<%- if @aggrmode -%>
+      aggrmode=<%= @aggrmode %>
+<%- end -%>
+<%- if @salifetime -%>
+      salifetime=<%= @salifetime %>
+<%- end -%>
+<%- if @rekey -%>
+      rekey=<%= @rekey %>
+<%- end -%>
+<%- if @rekeymargin -%>
+      rekeymargin=<%= @rekeymargin %>
+<%- end -%>
+<%- if @rekeyfuzz -%>
+      rekeyfuzz=<%= @rekeyfuzz %>
+<%- end -%>
+<%- if @keyingtries -%>
+      keyingtries=<%= @keyingtries %>
+<%- end -%>
+<%- if @ikelifetime -%>
+      ikelifetime=<%= @ikelifetime %>
+<%- end -%>
+<%- if @compress -%>
+      compress=<%= @compress %>
+<%- end -%>
+<%- if @metric -%>
+      metric=<%= @metric %>
+<%- end -%>
+<%- if @mtu -%>
+      mtu=<%= @mtu %>
+<%- end -%>
+<%- if @priority -%>
+      priority=<%= @priority %>
+<%- end -%>
+<%- if @disablearrivalcheck -%>
+      disablearrivalcheck=<%= @disablearrivalcheck %>
+<%- end -%>
+<%- if @labeled_ipsec -%>
+      labeled-ipsec=<%= @labeled_ipsec %>
+<%- end -%>
+<%- if @policy_label -%>
+      policy-label=<%= @policy_label %>
+<%- end -%>
+<%- if @loopback -%>
+      loopback=<%= @loopback %>
+<%- end -%>
+<%- if @failureshunt -%>
+      failureshunt=<%= @failureshunt %>
+<%- end -%>
+# conn <%= @title %>
