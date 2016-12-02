@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'libreswan' do
+describe 'ipsec' do
   context 'kernel => Linux' do
     let(:facts) do
       {
@@ -10,7 +10,7 @@ describe 'libreswan' do
       }
     end
 
-    it { should contain_class('libreswan') }
+    it { should contain_class('ipsec') }
 
     # Package
     it do
@@ -30,7 +30,16 @@ describe 'libreswan' do
     it do
       is_expected.to contain_file('/etc/ipsec.conf').with({
         :ensure => :file,
-        :mode   => 0600,
+        :mode   => '0600',
+        :owner  => :root,
+      })
+    end
+
+    # Configuration file /etc/ipsec.secrets
+    it do
+      is_expected.to contain_file('/etc/ipsec.secrets').with({
+        :ensure => :file,
+        :mode   => '0600',
         :owner  => :root,
       })
     end

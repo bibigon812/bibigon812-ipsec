@@ -2,5 +2,6 @@
 This module installs and configures libreswan.
 
 # Classes
-* libreswan
-* libreswan::tunnel
+* ipsec
+* ipsec::peer
+* ipsec::tunnel

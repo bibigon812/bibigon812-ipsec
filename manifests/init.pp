@@ -1,9 +1,9 @@
-class libreswan (
+class ipsec (
 
-  $package_name         = $libreswan::params::package_name,
-  $package_ensure       = $libreswan::params::package_ensure,
-  $service_name         = $libreswan::params::service_name,
-  $config_dir           = $libreswan::params::config_dir,
+  $package_name         = $ipsec::params::package_name,
+  $package_ensure       = $ipsec::params::package_ensure,
+  $service_name         = $ipsec::params::service_name,
+  $config_dir           = $ipsec::params::config_dir,
 
   Optional[String]
   $myid                 = undef,
@@ -70,7 +70,7 @@ class libreswan (
   Optional[Integer[1]]
   $overridemtu          = undef,
 
-) inherits libreswan::params {
+) inherits ipsec::params {
 
   class { "::${title}::install": }
   class { "::${title}::config":  }

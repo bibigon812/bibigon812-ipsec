@@ -1,46 +1,54 @@
-# TODO: write class libreswan::config
-class libreswan::config {
+# TODO: write class ipsec::config
+class ipsec::config {
   assert_private()
 
-  $service_name         = $::libreswan::service_name
+  $service_name         = $ipsec::service_name
 
-  $myid                 = $::libreswan::myid
-  $protostack           = $::libreswan::protostack
-  $interfaces           = $::libreswan::interfaces
-  $listen               = $::libreswan::listen
-  $ikeport              = $::libreswan::ikeport
-  $nat_ikeport          = $::libreswan::nat_ikeport
-  $keep_alive           = $::libreswan::keep_alive
-  $retransmits          = $::libreswan::retransmits
-  $virtual_private      = $::libreswan::virtual_private
-  $myvendorid           = $::libreswan::myvendorid
-  $nhelpers             = $::libreswan::nhelpers
-  $secctx_attr_value    = $::libreswan::secctx_attr_value
-  $plutofork            = $::libreswan::plutofork
-  $crlcheckinterval     = $::libreswan::crlcheckinterval
-  $strictcrlpolicy      = $::libreswan::strictcrlpolicy
-  $syslog               = $::libreswan::syslog
-  $klipsdebug           = $::libreswan::klipsdebug
-  $plutodebug           = $::libreswan::plutodebug
-  $uniqueids            = $::libreswan::uniqueids
-  $plutorestartoncrash  = $::libreswan::plutorestartoncrash
-  $plutostderrlog       = $::libreswan::plutostderrlog
-  $plutostderrlogtime   = $::libreswan::plutostderrlogtime
-  $force_busy           = $::libreswan::force_busy
-  $dumpdir              = $::libreswan::dumpdir
-  $statsbin             = $::libreswan::statsbin
-  $ipsecdir             = $::libreswan::ipsecdir
-  $secretsfile          = $::libreswan::secretsfile
-  $perpeerlog           = $::libreswan::perpeerlog
-  $perpeerlogdir        = $::libreswan::perpeerlogdir
-  $fragicmp             = $::libreswan::fragicmp
-  $hidetos              = $::libreswan::hidetos
-  $overridemtu          = $::libreswan::overridemtu
+  $myid                 = $ipsec::myid
+  $protostack           = $ipsec::protostack
+  $interfaces           = $ipsec::interfaces
+  $listen               = $ipsec::listen
+  $ikeport              = $ipsec::ikeport
+  $nat_ikeport          = $ipsec::nat_ikeport
+  $keep_alive           = $ipsec::keep_alive
+  $retransmits          = $ipsec::retransmits
+  $virtual_private      = $ipsec::virtual_private
+  $myvendorid           = $ipsec::myvendorid
+  $nhelpers             = $ipsec::nhelpers
+  $secctx_attr_value    = $ipsec::secctx_attr_value
+  $plutofork            = $ipsec::plutofork
+  $crlcheckinterval     = $ipsec::crlcheckinterval
+  $strictcrlpolicy      = $ipsec::strictcrlpolicy
+  $syslog               = $ipsec::syslog
+  $klipsdebug           = $ipsec::klipsdebug
+  $plutodebug           = $ipsec::plutodebug
+  $uniqueids            = $ipsec::uniqueids
+  $plutorestartoncrash  = $ipsec::plutorestartoncrash
+  $plutostderrlog       = $ipsec::plutostderrlog
+  $plutostderrlogtime   = $ipsec::plutostderrlogtime
+  $force_busy           = $ipsec::force_busy
+  $dumpdir              = $ipsec::dumpdir
+  $statsbin             = $ipsec::statsbin
+  $ipsecdir             = $ipsec::ipsecdir
+  $secretsfile          = $ipsec::secretsfile
+  $perpeerlog           = $ipsec::perpeerlog
+  $perpeerlogdir        = $ipsec::perpeerlogdir
+  $fragicmp             = $ipsec::fragicmp
+  $hidetos              = $ipsec::hidetos
+  $overridemtu          = $ipsec::overridemtu
 
   file { '/etc/ipsec.conf':
-    content => template('libreswan/ipsec.conf.erb'),
+    content => template('ipsec/ipsec.conf.erb'),
     ensure  => file,
-    mode    => 0600,
+    mode    => '0600',
+    notify  => Service[ $service_name ],
+    owner   => root,
+  }
+
+  file { '/etc/ipsec.secrets':
+    content => template('ipsec/ipsec.secrets.erb'),
+    ensure  => file,
+    mode    => '0600',
     notify  => Service[ $service_name ],
     owner   => root,
   }

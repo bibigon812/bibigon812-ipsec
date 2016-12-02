@@ -1,4 +1,4 @@
-class libreswan::params {
+class ipsec::params {
   $package_ensure = 'present'
   $config_dir     = '/etc/ipsec.d'
 

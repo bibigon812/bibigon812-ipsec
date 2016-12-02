@@ -1,9 +1,9 @@
-define libreswan::tunnel (
+define ipsec::tunnel (
   Optional[Enum['ipv4', 'ipv6']]
   $connaddrfamily       = undef,
   Optional[Enum['tunnel', 'transport', 'passthrough', 'drop', 'reject']]
   $type                 = undef,
-  Variant[Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]]
+  Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]
   $left,
   Optional[Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\/(\d+)\Z/]]
   $leftsubnet           = undef,
@@ -14,7 +14,7 @@ define libreswan::tunnel (
   $leftnexthop          = undef,
   $leftsourceip         = undef,
   $leftupdown           = undef,
-  Variant[Stdlib::Compat::Ipv4, Stdlib::Compat::Ipv6]
+  Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]
   $right,
   Optional[Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\/(\d+)\Z/]]
   $rightsubnet          = undef,
@@ -168,16 +168,16 @@ define libreswan::tunnel (
   $failureshunt         = undef,
 ) {
 
-  include ::libreswan::params
+  include ::ipsec::params
 
-  $config_dir           = $libreswan::params::config_dir
-  $service_name         = $libreswan::params::service_name
-  $package_name         = $libreswan::params::package_name
+  $config_dir           = $ipsec::params::config_dir
+  $service_name         = $ipsec::params::service_name
+  $package_name         = $ipsec::params::package_name
 
-  $file_name = downcase(regsubst($title, '[\s-]+', '_'))
+  $file_name = downcase(regsubst($title, '[\s-]+', '_', 'G'))
 
   file { "${config_dir}/tunnel_${file_name}.conf":
-    content => template('libreswan/tunnel.conf.erb'),
+    content => template('ipsec/tunnel.conf.erb'),
     ensure  => file,
     notify  => Service[ $service_name ],
     require => Package[ $package_name ],

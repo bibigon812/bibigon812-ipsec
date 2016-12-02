@@ -1,7 +1,7 @@
-class libreswan::service {
+class ipsec::service {
   assert_private()
 
-  service { $libreswan::service_name:
+  service { $ipsec::service_name:
     enable     => true,
     ensure     => running,
     hasrestart => true,

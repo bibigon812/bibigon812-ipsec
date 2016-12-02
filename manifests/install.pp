@@ -1,12 +1,12 @@
-class libreswan::install {
+class ipsec::install {
   assert_private()
 
-  file { $libreswan::config_dir:
+  file { $ipsec::config_dir:
     ensure => directory,
   }
 
-  package { $libreswan::package_name:
-    ensure => $libreswan::package_ensure,
-    before => Service[ $libreswan::service_name ],
+  package { $ipsec::package_name:
+    ensure => $ipsec::package_ensure,
+    before => Service[ $ipsec::service_name ],
   }
 }

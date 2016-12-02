@@ -1,10 +1,10 @@
 require 'spec_helper_acceptance'
 
-describe 'libreswan' do
+describe 'ipsec' do
   describe 'running puppet code' do
     it 'should work with no errors' do
       pp = <<-EOS
-        class { 'libreswan': }
+        class { 'ipsec': }
       EOS
 
       # Run it twice and test for idempotency
