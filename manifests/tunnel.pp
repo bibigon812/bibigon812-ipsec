@@ -1,4 +1,6 @@
 define ipsec::tunnel (
+  String
+  $psk,
   Optional[Enum['ipv4', 'ipv6']]
   $connaddrfamily       = undef,
   Optional[Enum['tunnel', 'transport', 'passthrough', 'drop', 'reject']]
@@ -174,9 +176,25 @@ define ipsec::tunnel (
   $service_name         = $ipsec::params::service_name
   $package_name         = $ipsec::params::package_name
 
-  $file_name = downcase(regsubst($title, '[\s-]+', '_', 'G'))
+  $real_leftid = $leftid ? {
+    undef   => $left,
+    default => $leftid,
+  }
 
-  file { "${config_dir}/tunnel_${file_name}.conf":
+  $real_rightid = $rightid ? {
+    undef   => $right,
+    default => $rightid,
+  }
+
+  $real_name = downcase(regsubst($name, '[\s-]+', '_', 'G'))
+
+  ensure_resource('ipsec::psk', $real_name, {
+    leftid  => $real_leftid,
+    rightid => $real_rightid,
+    psk     => $psk,
+  })
+
+  file { "${config_dir}/tunnel_${real_name}.conf":
     content => template('ipsec/tunnel.conf.erb'),
     ensure  => file,
     notify  => Service[ $service_name ],
