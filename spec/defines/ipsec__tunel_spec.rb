@@ -20,10 +20,15 @@ describe 'ipsec::tunnel' do
       :rightprotoport => 'all',
       :rightsubnet => '10.0.0.2/32',
       :ike => 'aes256-sha;dh24',
+      :psk => 'preshared secret key',
     }
   end
 
   it do
     is_expected.to contain_file('/etc/ipsec.d/tunnel_test_1.conf')
+  end
+
+  it do
+    is_expected.to contain_file('/etc/ipsec.d/tunnel_test_1.secrets')
   end
 end
