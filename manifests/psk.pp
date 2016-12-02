@@ -13,8 +13,8 @@ define ipsec::psk (
   $file_name = downcase(regsubst([$leftid, $rightid].join('_'), '[\s\.:-]+', '_', 'G'))
 
   file { "/etc/ipsec.d/tunnel_${name}.secrets":
-    content => template('ipsec/tunnel.secrets.erb'),
     ensure  => file,
+    content => template('ipsec/tunnel.secrets.erb'),
     mode    => '0600',
     require => Package[ $package_name ],
     notify  => Service[ $service_name ],

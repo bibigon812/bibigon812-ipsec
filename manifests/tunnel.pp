@@ -1,12 +1,15 @@
 define ipsec::tunnel (
+  Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]
+  $left,
+  Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]
+  $right,
   String
   $psk,
+
   Optional[Enum['ipv4', 'ipv6']]
   $connaddrfamily       = undef,
   Optional[Enum['tunnel', 'transport', 'passthrough', 'drop', 'reject']]
   $type                 = undef,
-  Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]
-  $left,
   Optional[Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\/(\d+)\Z/]]
   $leftsubnet           = undef,
   Optional[Array[Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\/(\d+)\Z/]]]
@@ -16,8 +19,6 @@ define ipsec::tunnel (
   $leftnexthop          = undef,
   $leftsourceip         = undef,
   $leftupdown           = undef,
-  Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]
-  $right,
   Optional[Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\/(\d+)\Z/]]
   $rightsubnet          = undef,
   Optional[Array[Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\/(\d+)\Z/]]]
@@ -195,8 +196,8 @@ define ipsec::tunnel (
   })
 
   file { "${config_dir}/tunnel_${real_name}.conf":
-    content => template('ipsec/tunnel.conf.erb'),
     ensure  => file,
+    content => template('ipsec/tunnel.conf.erb'),
     notify  => Service[ $service_name ],
     require => Package[ $package_name ],
   }

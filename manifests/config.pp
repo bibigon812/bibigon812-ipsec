@@ -38,16 +38,16 @@ class ipsec::config {
   $overridemtu          = $ipsec::overridemtu
 
   file { '/etc/ipsec.conf':
-    content => template('ipsec/ipsec.conf.erb'),
     ensure  => file,
+    content => template('ipsec/ipsec.conf.erb'),
     mode    => '0600',
     notify  => Service[ $service_name ],
     owner   => root,
   }
 
   file { '/etc/ipsec.secrets':
-    content => template('ipsec/ipsec.secrets.erb'),
     ensure  => file,
+    content => template('ipsec/ipsec.secrets.erb'),
     mode    => '0600',
     notify  => Service[ $service_name ],
     owner   => root,

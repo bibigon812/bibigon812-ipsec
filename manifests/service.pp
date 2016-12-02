@@ -2,8 +2,8 @@ class ipsec::service {
   assert_private()
 
   service { $ipsec::service_name:
-    enable     => true,
     ensure     => running,
+    enable     => true,
     hasrestart => true,
     hasstatus  => true,
   }
