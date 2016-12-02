@@ -1,12 +1,12 @@
 {
-  "name": "ducksource-ipsec",
+  "name": "ducksource-libreswan",
   "version": "0.1.0",
   "author": "DuckSource",
   "summary": "Manages IPsec on linux machines.",
   "license": "Apache-2.0",
-  "source": "https://github.com/bibigon812/ducksource-ipsec.git",
-  "project_page": "https://github.com/bibigon812/ducksource-ipsec",
-  "issues_url": "https://github.com/bibigon812/ducksource-ipsec/issues",
+  "source": "https://github.com/bibigon812/ducksource-libreswan.git",
+  "project_page": "https://github.com/bibigon812/ducksource-libreswan",
+  "issues_url": "https://github.com/bibigon812/ducksource-libreswan/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
