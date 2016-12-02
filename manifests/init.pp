@@ -72,17 +72,6 @@ class libreswan (
 
 ) inherits libreswan::params {
 
-  if $interfaces {
-    validate_array($interfaces)
-    validate_re_array($interfaces, ['^%none$', '^%defaultroute$', '(\w+=\w+)'])
-  }
-  if $listen {
-    validate_string($listen)
-    validete_ip
-  }
-
-  if $hidetos { validate_re($hidetos, '^(yes|no)$')}
-
   class { "::${title}::install": }
   class { "::${title}::config":  }
   class { "::${title}::service": }
