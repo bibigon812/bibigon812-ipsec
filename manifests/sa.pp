@@ -3,6 +3,8 @@ define ipsec::sa (
   $left,
   Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]
   $right,
+  Optional[Enum['add', 'ondemand', 'start', 'ignore', 'route']]
+  $auto,
 
   Optional[Enum['ipv4', 'ipv6']]
   $connaddrfamily       = undef,
@@ -27,8 +29,6 @@ define ipsec::sa (
   $rightsourceip        = undef,
   $rightupdown          = undef,
 
-  Optional[Enum['add', 'ondemand', 'start', 'ignore']]
-  $auto                 = undef,
   Optional[Enum['secret', 'rsasig', 'never']]
   $authby               = undef,
   Optional[Pattern['\A(aes(128|256)?|3des)-(md5|sha[12]?);dh\d+\Z']]
