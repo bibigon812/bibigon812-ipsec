@@ -19,6 +19,7 @@ describe 'ipsec::sa' do
       :right => '192.168.2.1',
       :rightprotoport => 'all',
       :rightsubnet => '10.0.0.2/32',
+      :auto => 'add',
       :ike => 'aes256-sha;dh24',
     }
   end
