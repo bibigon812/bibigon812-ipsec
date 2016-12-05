@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ipsec::tunnel' do
+describe 'ipsec::sa' do
   let(:facts) do
     {
       :osfamily => 'RedHat',
@@ -20,15 +20,10 @@ describe 'ipsec::tunnel' do
       :rightprotoport => 'all',
       :rightsubnet => '10.0.0.2/32',
       :ike => 'aes256-sha;dh24',
-      :psk => 'preshared secret key',
     }
   end
 
   it do
-    is_expected.to contain_file('/etc/ipsec.d/tunnel_test_1.conf')
-  end
-
-  it do
-    is_expected.to contain_file('/etc/ipsec.d/tunnel_test_1.secrets')
+    is_expected.to contain_file('/etc/ipsec.d/192_168_1_1_192_168_2_1.conf')
   end
 end
