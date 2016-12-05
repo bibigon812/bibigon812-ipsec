@@ -4,6 +4,6 @@
 This module provides controls IPsec connections.
 
 ## Classes
-* ipsec - class for managing of the IPsec service.
-* ipsec::sa - class for managing Secret Association.
-* ipsec::secrets -  class for managing secrets of the pair [leftid, rightid]
+* ::ipsec - class for managing of the IPsec service.
+* ::ipsec::sa - class for managing Secret Association.
+* ::ipsec::secrets -  class for managing secrets of the pair [leftid, rightid]
