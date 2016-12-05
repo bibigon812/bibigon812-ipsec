@@ -10,18 +10,20 @@ This module provides controls IPsec connections.
 
 ## Example
 
+### Add configuration
+
 ```
 class { 'ipsec': }
 
 class { 'ipsec::sa':
   left           => '192.168.1.1',
-  leftprotoport  => 'all',
+  leftprotoport  => all,
   leftsourceip   => '10.0.0.1',
   leftsubnet     => '10.0.0.1/32',
   right          => '192.168.2.1',
-  rightprotoport => 'all',
+  rightprotoport => all,
   rightsubnet    => '10.0.0.2/32',
-  auto           => 'add',
+  auto           => add,
   ike            => 'aes256-sha;dh24',
 }
 
@@ -29,5 +31,24 @@ class { 'ipsec::secrets':
   leftid  => '192.168.1.1',
   rightid => '192.168.2.1',
   psk     => 'preshared secret key',
+}
+```
+
+### Remove configuration:
+
+```
+class { 'ipsec': }
+
+class { 'ipsec::sa':
+  ensure => absent,
+  left   => '192.168.1.1',
+  right  => '192.168.2.1',
+  auto   => add,
+}
+
+class { 'ipsec::secrets':
+  ensure  => absent,
+  leftid  => '192.168.1.1',
+  rightid => '192.168.2.1',
 }
 ```
