@@ -2,6 +2,7 @@
 ### Fixed
 - The order of arguments in the ipsec::secrets class.
 - Changelog varions.
+- Example in READEME.md
 
 ## [0.1.1] - 2016-12-05
 ### Added
