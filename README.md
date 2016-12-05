@@ -7,3 +7,27 @@ This module provides controls IPsec connections.
 * ::ipsec - class for managing of the IPsec service.
 * ::ipsec::sa - class for managing Secret Association.
 * ::ipsec::secrets -  class for managing secrets of the pair [leftid, rightid]
+
+## Example
+
+```
+class { 'ipsec': }
+
+class { 'ipsec::sa':
+  :left => '192.168.1.1',
+  :leftprotoport => 'all',
+  :leftsourceip => '10.0.0.1',
+  :leftsubnet => '10.0.0.1/32',
+  :right => '192.168.2.1',
+  :rightprotoport => 'all',
+  :rightsubnet => '10.0.0.2/32',
+  :auto => 'add',
+  :ike => 'aes256-sha;dh24',
+}
+
+class { 'ipsec::secrets':
+  :leftid  => '192.168.1.1',
+  :rightid => '192.168.2.1',
+  :psk     => 'preshared secret key',
+}
+```
