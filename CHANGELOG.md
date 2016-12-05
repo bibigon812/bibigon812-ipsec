@@ -1,3 +1,7 @@
+## [Unreleased]
+### Fixed
+- IPsec service restart behavior.
+
 ## [0.1.3] - 2016-12-05
 ### Added
 - Requirements in ::ipsec::service class.
