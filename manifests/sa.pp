@@ -6,6 +6,9 @@ define ipsec::sa (
   Optional[Enum['add', 'ondemand', 'start', 'ignore', 'route']]
   $auto,
 
+  Enum['present', 'absent']
+  $ensure               = 'present',
+
   Optional[Enum['ipv4', 'ipv6']]
   $connaddrfamily       = undef,
   Optional[Enum['tunnel', 'transport', 'passthrough', 'drop', 'reject']]
@@ -175,6 +178,11 @@ define ipsec::sa (
   $service_name         = $ipsec::params::service_name
   $package_name         = $ipsec::params::package_name
 
+  $file_ensure = $ensure ? {
+    'present' => file,
+    default   => absent,
+  }
+
   $real_leftid = $leftid ? {
     undef   => $left,
     default => $leftid,
@@ -189,7 +197,7 @@ define ipsec::sa (
     '[\s\.\@:-]', '_', 'G'))
 
   file { "${config_dir}/${file_name}.conf":
-    ensure  => file,
+    ensure  => $file_ensure,
     content => template('ipsec/sa.conf.erb'),
     notify  => Service[ $service_name ],
     require => Package[ $package_name ],
