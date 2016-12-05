@@ -23,6 +23,10 @@ define ipsec::secrets (
     default   => absent,
   }
 
+  unless ($psk or $rsa or $xauth) {
+    fail('Psk, rsa or xauth required.')
+  }
+
   $file_name = downcase(regsubst([$leftid, $rightid].join('_'), '[\s\.\@:-]', '_', 'G'))
 
   file { "/etc/ipsec.d/${file_name}.secrets":
