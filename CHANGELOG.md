@@ -1,4 +1,8 @@
 ## [Unreleased]
+### Added
+- Added check for the presence of at least one of the secrets method.
+- Added changelog.
+
 ### Changed
 - Class ::ipsec::tunnel to ::ipsec::sa.
 - Class ::ipsec::psk to ::ipsec::secrets.
