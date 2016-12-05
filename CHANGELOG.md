@@ -1,4 +1,9 @@
 ## [Unreleased]
+### Fixed
+- The order of arguments in the ipsec::secrets class.
+- Changelog varions.
+
+## [0.1.1] - 2016-12-05
 ### Added
 - Added check for the presence of at least one of the secrets method.
 - Added changelog.
