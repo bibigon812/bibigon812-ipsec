@@ -1,6 +1,6 @@
 {
   "name": "bibigon812-ipsec",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Dmitriy Yakovlev",
   "summary": "Manages IPsec on linux machines.",
   "license": "Apache-2.0",

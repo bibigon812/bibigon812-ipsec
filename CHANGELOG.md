@@ -1,4 +1,4 @@
-## [Unreleased]
+## [0.1.3] - 2016-12-05
 ### Added
 - Requirements in ::ipsec::service class.
 - Ensure in ::ipsec::sa class.
