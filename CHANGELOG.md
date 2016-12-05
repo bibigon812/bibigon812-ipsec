@@ -1,4 +1,4 @@
-## [Unreleased]
+## [0.1.4] - 20165-12-05
 ### Fixed
 - IPsec service restart behavior.
 
