@@ -6,5 +6,6 @@ class ipsec::service {
     enable     => true,
     hasrestart => true,
     hasstatus  => true,
+    require    => Package[ $ipsec::package_name ],
   }
 }
