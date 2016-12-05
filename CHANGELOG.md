@@ -1,4 +1,4 @@
-## [Unreleased]
+## [0.1.2] - 2016-12-05
 ### Fixed
 - The order of arguments in the ipsec::secrets class.
 - Changelog varions.
