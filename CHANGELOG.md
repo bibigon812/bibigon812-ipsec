@@ -1,3 +1,11 @@
+## [Unreleased]
+### Added
+- Requirements in ::ipsec::service class.
+- Ensure in ::ipsec::sa class.
+
+### Changed
+- Example.
+
 ## [0.1.2] - 2016-12-05
 ### Fixed
 - The order of arguments in the ipsec::secrets class.
