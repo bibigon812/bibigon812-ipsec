@@ -1,10 +1,8 @@
-define ipsec::tunnel (
+define ipsec::sa (
   Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]
   $left,
   Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]
   $right,
-  String
-  $psk,
 
   Optional[Enum['ipv4', 'ipv6']]
   $connaddrfamily       = undef,
@@ -187,17 +185,12 @@ define ipsec::tunnel (
     default => $rightid,
   }
 
-  $real_name = downcase(regsubst($name, '[\s-]+', '_', 'G'))
+  $file_name = downcase(regsubst([$real_leftid, $real_rightid].join('_'),
+    '[\s\.\@:-]', '_', 'G'))
 
-  ensure_resource('ipsec::psk', $real_name, {
-    leftid  => $real_leftid,
-    rightid => $real_rightid,
-    psk     => $psk,
-  })
-
-  file { "${config_dir}/tunnel_${real_name}.conf":
+  file { "${config_dir}/${file_name}.conf":
     ensure  => file,
-    content => template('ipsec/tunnel.conf.erb'),
+    content => template('ipsec/sa.conf.erb'),
     notify  => Service[ $service_name ],
     require => Package[ $package_name ],
   }
