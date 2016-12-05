@@ -7,5 +7,6 @@ class ipsec::service {
     hasrestart => true,
     hasstatus  => true,
     require    => Package[ $ipsec::package_name ],
+    restart    => "systemctl reload ${ipsec::service_name}",
   }
 }
