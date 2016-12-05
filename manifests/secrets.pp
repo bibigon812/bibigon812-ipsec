@@ -1,10 +1,10 @@
 define ipsec::secrets (
-  Enum['present', 'absent']
-  $ensure = 'present',
   String
   $leftid,
   String
   $rightid,
+  Enum['present', 'absent']
+  $ensure = 'present',
   Optional[String]
   $psk    = undef,
   Optional[String]
