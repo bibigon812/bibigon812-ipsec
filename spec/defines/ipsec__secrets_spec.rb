@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ipsec::secrets' do
+describe 'ipsec::secrets', :type => :define do
   let(:facts) {
     {
       :osfamily => 'RedHat',
@@ -24,20 +24,34 @@ describe 'ipsec::secrets' do
     }
   end
 
-
   context 'Without psk, rsa and xauth.' do
     let(:title) { 'test-2' }
     let(:params) {
       {
         :leftid  => '192.168.3.1',
-        :rightid => '192.168.4.1',
       }
     }
 
     it do
       expect {
-        is_expected.to contain_file('/etc/ipsec.d/192_168_3_1_192_168_4_1.secrets')
-      }.to raise_error(Puppet::Error, /Psk, rsa or xauth required/)
+        is_expected.to contain_file('/etc/ipsec.d/test_2.secrets')
+      }.to raise_error(Puppet::Error, /Leftid, rightid and psk|rsa|xauth required./)
+    end
+  end
+
+  context 'Remove configuration.' do
+    let(:title) { 'test-3' }
+    let(:params) {
+      {
+        :ensure => 'absent',
+      }
+    }
+    it do
+      expect {
+        is_expected.to contain_file('/etc/ipsec.d/test_r.secrets').with({
+          :enshure => 'absent',
+        })
+      }
     end
   end
 end
