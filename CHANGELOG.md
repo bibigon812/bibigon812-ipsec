@@ -9,7 +9,7 @@
 - The filename of the secrets.
 - All parameters of the ::ipsec::secrets resource become optional.
 
-## [0.1.4] - 20165-12-05
+## [0.1.4] - 2016-12-05
 ### Fixed
 - IPsec service restart behavior.
 
