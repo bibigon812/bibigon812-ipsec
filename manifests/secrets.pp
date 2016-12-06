@@ -1,16 +1,16 @@
 define ipsec::secrets (
-  String
-  $leftid,
-  String
-  $rightid,
+  Optional[String]
+  $leftid  = undef,
+  Optional[String]
+  $rightid = undef,
   Enum['present', 'absent']
-  $ensure = 'present',
+  $ensure  = 'present',
   Optional[String]
-  $psk    = undef,
+  $psk     = undef,
   Optional[String]
-  $rsa    = undef,
+  $rsa     = undef,
   Optional[String]
-  $xauth  = undef,
+  $xauth   = undef,
 ) {
 
   include ::ipsec::params
@@ -23,8 +23,12 @@ define ipsec::secrets (
     default   => absent,
   }
 
-  unless ($psk or $rsa or $xauth) {
-    fail('Psk, rsa or xauth required.')
+  unless (
+    ($leftid and $rightid)
+    or $psk or $rsa or $xauth
+    or $ensure == 'absent') {
+
+    fail('Leftid, rightid and psk|rsa|xauth required.')
   }
 
   $file_name = downcase(regsubst($name, '\W', '_', 'G'))
