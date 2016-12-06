@@ -27,7 +27,7 @@ define ipsec::secrets (
     fail('Psk, rsa or xauth required.')
   }
 
-  $file_name = downcase(regsubst([$leftid, $rightid].join('_'), '[\s\.\@:-]', '_', 'G'))
+  $file_name = downcase(regsubst($name, '\W', '_', 'G'))
 
   file { "/etc/ipsec.d/${file_name}.secrets":
     ensure  => $file_ensure,
