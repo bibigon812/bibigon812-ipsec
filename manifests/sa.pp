@@ -3,9 +3,9 @@ define ipsec::sa (
   $left,
   Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]
   $right,
-  Optional[Enum['add', 'ondemand', 'start', 'ignore', 'route']]
-  $auto,
 
+  Optional[Enum['add', 'ondemand', 'start', 'ignore', 'route']]
+  $auto                 = 'ignore',
   Enum['present', 'absent']
   $ensure               = 'present',
 
