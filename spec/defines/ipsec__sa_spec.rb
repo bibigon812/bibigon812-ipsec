@@ -25,6 +25,6 @@ describe 'ipsec::sa' do
   end
 
   it do
-    is_expected.to contain_file('/etc/ipsec.d/192_168_1_1_192_168_2_1.conf')
+    is_expected.to contain_file('/etc/ipsec.d/test_1.conf')
   end
 end
