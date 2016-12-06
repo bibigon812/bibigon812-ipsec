@@ -1,4 +1,4 @@
-## [Unreleased]
+## [0.2.0] - 2016-12-06
 ### Added
 - Validation parameters of the ::ipsec::secrets resource.
 - Test for ::ipsec::secrets resource.
