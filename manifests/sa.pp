@@ -193,8 +193,7 @@ define ipsec::sa (
     default => $rightid,
   }
 
-  $file_name = downcase(regsubst($name,
-    '\W', '_', 'G'))
+  $file_name = downcase(regsubst($name, '\W', '_', 'G'))
 
   file { "${config_dir}/${file_name}.conf":
     ensure  => $file_ensure,
