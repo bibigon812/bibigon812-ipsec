@@ -13,7 +13,7 @@ This module provides controls IPsec connections.
 ### Add configuration
 
 ```
-ipsec { 'ipsec': }
+ipsec { 'IPSEC': }
 
 ipsec::sa { 'TEST-SA-1':
   left           => '192.168.1.1',
@@ -37,7 +37,7 @@ ipsec::secrets { 'TEST-SECRETS-1':
 ### Remove configuration:
 
 ```
-ipsec { 'ipsec': }
+ipsec { 'IPSEC': }
 
 ipsec::sa { 'TEST-SA-1':
   ensure => absent,
