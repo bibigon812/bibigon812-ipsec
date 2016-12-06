@@ -1,3 +1,7 @@
+## [Unreleased]
+### Fixed
+- Copyright.
+
 ## [0.2.1] - 2016-12-06
 ### Fixed
 - Examples.
