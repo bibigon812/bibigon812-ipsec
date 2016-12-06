@@ -20,7 +20,7 @@ describe 'ipsec::secrets' do
     }
 
     it {
-      is_expected.to contain_file('/etc/ipsec.d/192_168_1_1_192_168_2_1.secrets')
+      is_expected.to contain_file('/etc/ipsec.d/test_1.secrets')
     }
   end
 
