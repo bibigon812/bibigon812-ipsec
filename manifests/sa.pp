@@ -1,13 +1,14 @@
 define ipsec::sa (
-  Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]
-  $left,
-  Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]
-  $right,
 
-  Optional[Enum['add', 'ondemand', 'start', 'ignore', 'route']]
-  $auto                 = 'ignore',
   Enum['present', 'absent']
   $ensure               = 'present',
+  Optional[Enum['add', 'ondemand', 'start', 'ignore', 'route']]
+  $auto                 = 'ignore',
+
+  Optional[Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]]
+  $left                 = undef,
+  Optional[Pattern[/\A(\d+)\.(\d+)\.(\d+)\.(\d+)\Z/]]
+  $right                = undef,
 
   Optional[Enum['ipv4', 'ipv6']]
   $connaddrfamily       = undef,
