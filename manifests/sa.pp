@@ -35,11 +35,11 @@ define ipsec::sa (
 
   Optional[Enum['secret', 'rsasig', 'never']]
   $authby               = undef,
-  Optional[Pattern['\A(aes(128|256)?|3des)-(md5|sha[12]?);dh\d+\Z']]
+  Optional[Pattern[/\A(aes(128|256)?|3des)-(md5|sha[12]?);dh\d+\Z/]]
   $ike                  = undef,
   Optional[Enum['esp', 'ah']]
   $phase2               = undef,
-  Optional[Pattern['\A(aes(128|256)?|3des)-(md5|sha[12]?);dh\d+\Z']]
+  Optional[Pattern[/\A(aes(128|256)?|3des)-(md5|sha[12]?);dh\d+\Z/]]
   $phase2alg            = undef,
   Optional[Enum['yes', 'no']]
   $sha2_truncbug        = undef,
@@ -141,17 +141,17 @@ define ipsec::sa (
   $pfs                  = undef,
   Optional[Enum['yes', 'no']]
   $aggrmode             = undef,
-  Optional[Pattern['\A\d+[mhd]?\Z']]
+  Optional[Pattern[/\A\d+[mhd]?\Z/]]
   $salifetime           = undef,
   Optional[Enum['yes', 'no']]
   $rekey                = undef,
-  Optional[Pattern['\A\d+[mhd]?\Z']]
+  Optional[Pattern[/\A\d+[mhd]?\Z/]]
   $rekeymargin          = undef,
-  Optional[Pattern['\A(1[0-9][0-9]|[1-9][0-9]|[0-9])%\Z']]
+  Optional[Pattern[/\A(1[0-9][0-9]|[1-9][0-9]|[0-9])%\Z/]]
   $rekeyfuzz            = undef,
   Optional[Variant[Integer[0], Enum['%forever']]]
   $keyingtries          = undef,
-  Optional[Pattern['\A\d+[mhd]?\Z']]
+  Optional[Pattern[/\A\d+[mhd]?\Z/]]
   $ikelifetime          = undef,
   Optional[Enum['yes', 'no']]
   $compress             = undef,
