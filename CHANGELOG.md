@@ -1,4 +1,7 @@
 ## [Unreleased]
+### Fixed
+- Regex declaration in SA define.
+
 ### Removed
 - Blank line from SA template.
 
