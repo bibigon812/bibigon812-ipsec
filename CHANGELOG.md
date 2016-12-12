@@ -1,3 +1,7 @@
+## [Unreleased]
+### Removed
+- Blank line from SA template.
+
 ## [0.2.3] - 2016-12-08
 ### Changed
 - Parameters $left and $right become optional in ::ipsec::sa resource.
